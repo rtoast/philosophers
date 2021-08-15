@@ -19,6 +19,7 @@ void	pars_argument(t_init *tmp, char **argv)
 		error = valid(argv[i]);
 		if (error == -1)
 			ft_error("Not valid arguments");
-		filing(argv[i], i, tmp);
+		else
+			filing(argv[i], i, tmp);
 	}
 }
