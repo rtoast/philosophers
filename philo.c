@@ -11,5 +11,5 @@ int main(int argc, char **argv)
 		ft_error("Wrong amount of arguments :(");
 	tmp = init_tmp(tmp, argv);
 	philo_array = create_array(tmp);
-	
+	create_flow(philo_array);
 }

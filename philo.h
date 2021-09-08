@@ -5,7 +5,7 @@
 # include "unistd.h"
 # include "stdlib.h"
 # include "pthread.h"
-// # include "sys/time.h"
+# include "sys/time.h"
 
 typedef struct	s_init
 {
@@ -31,5 +31,10 @@ int		ft_atoi(char *str);
 void	pars_argument(t_init *tmp, char **argv);
 void	filing(char *str, int i, t_init *tmp);
 void	*cycle_of_boring_life(void *arg);
+void	create_flow(t_philo *philo_array);
+int		my_get_time(void);
+void	my_sleep(int time);
+t_philo	*create_array(t_init *tmp);
+pthread_mutex_t	*create_fork_array(int num);
 
 #endif

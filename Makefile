@@ -1,6 +1,6 @@
 NAME = philo
 HEAD = ./philo.h
-C_FILE = philo.c additionally.c init.c
+C_FILE = philo.c additionally.c init.c array_create.c cycle_of_boring_life.c pthread_create.c utils.c
 O_FILE = $(C_FILE:.c=.o)
 all:
 	$(MAKE) $(NAME) -j 4
