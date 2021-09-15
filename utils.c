@@ -16,3 +16,22 @@ void	my_sleep(int time)
 	while((my_get_time() - start) < time)
 		usleep(20);
 }
+
+void	print(int i, int time, int index, pthread_mutex_t *mas)
+{
+	pthread_mutex_lock(mas);
+	if (i == 1)
+		printf(GREEN"%4d: "RESET"%3d "YELLOW"philo has taken a fork\n", time, index);
+	if (i == 2)
+		printf(GREEN"%4d: "RESET"%3d "BLUE"philo eating\n", time, index);
+	if (i == 3)
+		printf(GREEN"%4d: "RESET"%3d "MAGENTA"philo sleeping\n", time, index);
+	if (i == 4)
+		 printf(GREEN"%4d: "RESET"%3d "CYAN"philo thinking\n", time, index);
+	if (i == 5)
+	{
+		 printf(RED"%4d: %3d PHILO IS DIE\n", time, i);
+		 return ;
+	}
+	pthread_mutex_unlock(mas);
+}

@@ -7,6 +7,14 @@
 # include "pthread.h"
 # include "sys/time.h"
 
+# define RED "\x1b[31m"
+# define GREEN "\x1b[32m"
+# define YELLOW "\x1b[33m"
+# define BLUE "\x1b[34m"
+# define MAGENTA "\x1b[35m"
+# define CYAN "\x1b[36m"
+# define RESET "\x1b[0m"
+
 typedef struct	s_init
 {
 	int			philo_num;
@@ -15,15 +23,17 @@ typedef struct	s_init
 	int			eat;
 	int			amount_eat;
 	int			start_time;
+	pthread_mutex_t	message;
 }				t_init;
 
 typedef struct	s_philo
 {
-	pthread_mutex_t *left;
-	pthread_mutex_t *right;
+	pthread_mutex_t	*left;
+	pthread_mutex_t	*right;
 	t_init			*tmp;
 	int				index;
 	int				time_end;
+	int				num_eat;
 }				t_philo;
 
 void	ft_error(char *str);
@@ -42,5 +52,6 @@ void	eating(t_philo *philo);
 void	sleeping(t_philo *philo);
 void	thinking(t_philo *philo);
 void	*philo_die(void *arg);
+void	print(int i, int time, int index, pthread_mutex_t *mas);
 
 #endif

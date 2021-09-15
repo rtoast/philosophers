@@ -16,6 +16,7 @@ t_philo *create_array(t_init *tmp)
 		philo_array[i].right = &(array_fork[(i + 1) % tmp->philo_num]);
 		philo_array[i].tmp = tmp;
 		philo_array[i].time_end = my_get_time() + tmp->time;
+		philo_array[i].num_eat = 0;
 		i++;
 	}
 	return (philo_array);

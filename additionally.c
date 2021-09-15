@@ -13,6 +13,8 @@ int		valid(char *str)
 
 	i = -1;
 	flag = 0;
+	if (str[0] == '\0')
+		return (-1);
 	while (str[++i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')

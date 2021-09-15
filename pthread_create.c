@@ -17,12 +17,16 @@ void	create_flow(t_philo *philo_array)
 	}
 	pthread_create(&(death), NULL, philo_die, (void *)(philo_array));
 	pthread_join(death, NULL);
+	pthread_detach(death);
+	free (ptr);
 }
 
 void	*philo_die(void *arg)
 {
 	t_philo	*philo;
 	int i;
+	int well_fed;
+	int num;
 
 	i = 0;
 	philo = (t_philo *)arg;
@@ -30,10 +34,23 @@ void	*philo_die(void *arg)
 	{
 		if (my_get_time() >= philo[i].time_end)
 		{
-			printf("%4d : %d Hey I deal with death\n", my_get_time() - philo->tmp->start_time, philo->index);
+			print(5, my_get_time() - philo->tmp->start_time, philo->index, &(philo->tmp->message));
 			break ;
+		}
+		if (philo[0].tmp->amount_eat != -1)
+		{
+			well_fed = 0;
+			num = -1;
+			while (++num < philo->tmp->philo_num)
+			{
+				if (philo[num].num_eat >= philo[0].tmp->amount_eat)
+					well_fed++;
+			}
+			if (well_fed == philo->tmp->philo_num)
+				break ;
 		}
 		i = (i + 1) % philo->tmp->philo_num;
 	}
 	return(NULL);
 }
+

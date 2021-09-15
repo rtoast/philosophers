@@ -12,4 +12,10 @@ int main(int argc, char **argv)
 	tmp = init_tmp(tmp, argv);
 	philo_array = create_array(tmp);
 	create_flow(philo_array);
+	if (tmp)
+		free(tmp);
+	if (philo_array[0].left)
+		free(philo_array[0].left);
+	if (philo_array)
+		free(philo_array);
 }

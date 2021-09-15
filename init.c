@@ -5,6 +5,7 @@ t_init	*init_tmp(t_init *tmp, char **argv)
 	tmp = (t_init *)malloc(sizeof(t_init));
 	pars_argument(tmp, argv);
 	tmp->start_time = my_get_time();
+	pthread_mutex_init(&(tmp->message), NULL);
 	return (tmp);
 }
 
@@ -15,6 +16,7 @@ void	pars_argument(t_init *tmp, char **argv)
 
 	i = 0;
 	error = 0;
+	tmp->amount_eat = -1;
 	while (argv[++i])
 	{
 		error = valid(argv[i]);
