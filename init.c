@@ -4,6 +4,7 @@ t_init	*init_tmp(t_init *tmp, char **argv)
 {
 	tmp = (t_init *)malloc(sizeof(t_init));
 	pars_argument(tmp, argv);
+	tmp->start_time = my_get_time();
 	return (tmp);
 }
 

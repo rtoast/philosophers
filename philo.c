@@ -7,8 +7,8 @@ int main(int argc, char **argv)
 
 	tmp = NULL;
 	philo_array = NULL;
-	if (argc < 4)
-		ft_error("Wrong amount of arguments :(");
+	if (argc != 5 && argc != 6)
+		ft_error("Wrong amount of arguments: meow :(");
 	tmp = init_tmp(tmp, argv);
 	philo_array = create_array(tmp);
 	create_flow(philo_array);

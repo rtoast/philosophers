@@ -14,6 +14,7 @@ typedef struct	s_init
 	int			sleep;
 	int			eat;
 	int			amount_eat;
+	int			start_time;
 }				t_init;
 
 typedef struct	s_philo
@@ -22,6 +23,7 @@ typedef struct	s_philo
 	pthread_mutex_t *right;
 	t_init			*tmp;
 	int				index;
+	int				time_end;
 }				t_philo;
 
 void	ft_error(char *str);
@@ -36,5 +38,9 @@ int		my_get_time(void);
 void	my_sleep(int time);
 t_philo	*create_array(t_init *tmp);
 pthread_mutex_t	*create_fork_array(int num);
+void	eating(t_philo *philo);
+void	sleeping(t_philo *philo);
+void	thinking(t_philo *philo);
+void	*philo_die(void *arg);
 
 #endif
