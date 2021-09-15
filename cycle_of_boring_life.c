@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cycle_of_boring_life.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rtoast <rtoast@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/15 23:36:37 by rtoast            #+#    #+#             */
+/*   Updated: 2021/09/15 23:37:17 by rtoast           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
-void *cycle_of_boring_life(void *arg)
+void	*cycle_of_boring_life(void *arg)
 {
 	t_philo	*philo;
 
@@ -21,11 +33,14 @@ void	eating(t_philo *philo)
 	if ((philo->index % 2) == 1)
 		usleep(200);
 	pthread_mutex_lock(philo->right);
-	print(1, my_get_time() - philo->tmp->start_time, philo->index, &(philo->tmp->message));
+	print(1, my_get_time() - philo->tmp->start_time, philo->index, \
+	&(philo->tmp->message));
 	pthread_mutex_lock(philo->left);
-	print(1, my_get_time() - philo->tmp->start_time, philo->index, &(philo->tmp->message));
+	print(1, my_get_time() - philo->tmp->start_time, philo->index, \
+	&(philo->tmp->message));
 	(philo->num_eat)++;
-	print(2, my_get_time() - philo->tmp->start_time, philo->index, &(philo->tmp->message));
+	print(2, my_get_time() - philo->tmp->start_time, philo->index, \
+	&(philo->tmp->message));
 	philo->time_end = my_get_time() + philo->tmp->time;
 	my_sleep(philo->tmp->eat);
 	pthread_mutex_unlock(philo->right);
@@ -34,11 +49,13 @@ void	eating(t_philo *philo)
 
 void	sleeping(t_philo *philo)
 {
-	print(3, my_get_time() - philo->tmp->start_time, philo->index, &(philo->tmp->message));
+	print(3, my_get_time() - philo->tmp->start_time, philo->index, \
+	&(philo->tmp->message));
 	my_sleep(philo->tmp->sleep);
 }
 
 void	thinking(t_philo *philo)
 {
-	print(4, my_get_time() - philo->tmp->start_time, philo->index, &(philo->tmp->message));
+	print(4, my_get_time() - philo->tmp->start_time, philo->index, \
+	&(philo->tmp->message));
 }

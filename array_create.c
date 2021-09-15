@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   array_create.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rtoast <rtoast@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/15 23:37:30 by rtoast            #+#    #+#             */
+/*   Updated: 2021/09/15 23:37:59 by rtoast           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
-t_philo *create_array(t_init *tmp)
+t_philo	*create_array(t_init *tmp)
 {
 	pthread_mutex_t	*array_fork;
 	t_philo			*philo_array;
@@ -22,7 +34,7 @@ t_philo *create_array(t_init *tmp)
 	return (philo_array);
 }
 
-pthread_mutex_t *create_fork_array(int num)
+pthread_mutex_t	*create_fork_array(int num)
 {
 	pthread_mutex_t	*array;
 	int				i;
@@ -34,5 +46,5 @@ pthread_mutex_t *create_fork_array(int num)
 		pthread_mutex_init(&(array[i]), NULL);
 		i++;
 	}
-	return(array);
+	return (array);
 }

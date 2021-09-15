@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   additionally.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rtoast <rtoast@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/15 23:38:17 by rtoast            #+#    #+#             */
+/*   Updated: 2021/09/15 23:38:22 by rtoast           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	ft_error(char *str)
@@ -6,7 +18,7 @@ void	ft_error(char *str)
 	exit (0);
 }
 
-int		valid(char *str)
+int	valid(char *str)
 {
 	int	flag;
 	int	i;

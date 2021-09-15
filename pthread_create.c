@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pthread_create.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rtoast <rtoast@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/15 23:34:25 by rtoast            #+#    #+#             */
+/*   Updated: 2021/09/15 23:35:48 by rtoast           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 void	create_flow(t_philo *philo_array)
 {
-	int i;
-	int num;
-	pthread_t *ptr;
+	int			i;
+	int			num;
+	pthread_t	*ptr;
 	pthread_t	death;
 
 	i = 0;
@@ -12,7 +24,8 @@ void	create_flow(t_philo *philo_array)
 	ptr = (pthread_t *)malloc(sizeof(pthread_t) * num);
 	while (i < num)
 	{
-		pthread_create(&(ptr[i]), NULL, cycle_of_boring_life, (void *)&(philo_array[i]));
+		pthread_create(&(ptr[i]), NULL, cycle_of_boring_life, \
+		(void *)&(philo_array[i]));
 		i++;
 	}
 	pthread_create(&(death), NULL, philo_die, (void *)(philo_array));
@@ -24,9 +37,9 @@ void	create_flow(t_philo *philo_array)
 void	*philo_die(void *arg)
 {
 	t_philo	*philo;
-	int i;
-	int well_fed;
-	int num;
+	int		i;
+	int		well_fed;
+	int		num;
 
 	i = 0;
 	philo = (t_philo *)arg;
@@ -34,7 +47,8 @@ void	*philo_die(void *arg)
 	{
 		if (my_get_time() >= philo[i].time_end)
 		{
-			print(5, my_get_time() - philo->tmp->start_time, philo->index, &(philo->tmp->message));
+			print(5, my_get_time() - philo->tmp->start_time, philo->index, \
+			&(philo->tmp->message));
 			break ;
 		}
 		if (philo[0].tmp->amount_eat != -1)
@@ -51,6 +65,5 @@ void	*philo_die(void *arg)
 		}
 		i = (i + 1) % philo->tmp->philo_num;
 	}
-	return(NULL);
+	return (NULL);
 }
-

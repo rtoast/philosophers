@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rtoast <rtoast@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/15 23:31:22 by rtoast            #+#    #+#             */
+/*   Updated: 2021/09/15 23:31:43 by rtoast           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_init *tmp;
-	t_philo *philo_array;
+	t_init	*tmp;
+	t_philo	*philo_array;
 
 	tmp = NULL;
 	philo_array = NULL;
